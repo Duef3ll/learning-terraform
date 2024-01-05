@@ -29,7 +29,7 @@ resource "aws_instance" "blog" {
   }
 }
 
-module "blow_sg" {
+module "blog_sg" {
   source  = "terraform-aws-modules/security-group/aws"
   version = "4.13.0"
   name    = "blog_new"
@@ -39,8 +39,8 @@ module "blow_sg" {
   ingress_rules       = ["https-80-tcp", "http-443-tcp"]
   ingress_cidr_blocks = ["0.0.0.0/0"]
 
-  engress_rules       = ["all-all"]
-  engress_cidr_blocks = ["0.0.0.0/0"]
+  egress_rules       = ["all-all"]
+  egress_cidr_blocks = ["0.0.0.0/0"]
 }
 
 resource "aws_security_group" "blog" {
